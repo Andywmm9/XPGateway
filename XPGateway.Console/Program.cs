@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static XPGateway.Responses.GetAllAirportsResponse;
+using XPGateway.Framework;
+using static XPGateway.Framework.Responses.GetAllAirportsResponse;
 
 namespace XPGateway
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using XPGateway.Responses;
+using XPGateway.Framework.Responses;
 
-namespace XPGateway
+namespace XPGateway.Framework
 {
     public class GatewayApiClient
     {

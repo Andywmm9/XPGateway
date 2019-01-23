@@ -7,7 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLine.Core.CommandLineUtils" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XPGateway.Framework\XPGateway.Framework.csproj" />
   </ItemGroup>
 
 </Project>

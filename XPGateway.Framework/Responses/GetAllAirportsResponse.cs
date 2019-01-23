@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace XPGateway.Responses
+namespace XPGateway.Framework.Responses
 {
     public class GetAllAirportsResponse
     {

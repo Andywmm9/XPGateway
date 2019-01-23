@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace XPGateway.Tasks
+namespace XPGateway.Framework.Tasks
 {
     /// <summary>
     /// A task responsible for finding the installation location of X-Plane.
