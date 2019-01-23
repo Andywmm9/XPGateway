@@ -1,11 +1,11 @@
-﻿using McMaster.Extensions.CommandLineUtils;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils;
 using XPGateway.Framework;
-using static XPGateway.Framework.Responses.GetAllAirportsResponse;
+using XPGateway.Framework.Responses;
 
-namespace XPGateway
+namespace XPGateway.Console
 {
     class Program
     {
@@ -33,7 +33,7 @@ namespace XPGateway
         private async Task ExecuteAsync()
         {
             var gatewayApiClient = new GatewayApiClient();
-            var filteredAirports = new List<Airport>();
+            var filteredAirports = new List<GetAllAirportsResponse.Airport>();
 
             OutputMessage("Beginning to download airports from the scenery gateway...");
 
@@ -53,8 +53,17 @@ namespace XPGateway
                     }
                 }
             }
+            else
+                filteredAirports = airportsResponse.Airports.ToList();
 
             OutputMessage($"{ filteredAirports.Count} airports found that match the airport code prefixes set in options.");
+
+            foreach (var airport in filteredAirports.Where(x => x.RecommendedSceneryId.HasValue && x.RecommendedSceneryId > 0))
+            {
+                var sceneryResponse = await gatewayApiClient.GetSceneryResponse(airport.RecommendedSceneryId.Value);
+
+                OutputMessage(sceneryResponse.UserName);
+            }
         }
 
         /// <summary>
@@ -65,7 +74,7 @@ namespace XPGateway
         private void OutputMessage(string message, bool verboseOnly = true)
         {
             if (Verbose)
-                Console.WriteLine(message);
+                System.Console.WriteLine(message);
         }
     }
 }

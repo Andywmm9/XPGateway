@@ -23,7 +23,7 @@ namespace XPGateway.Framework.Responses
             public double? Elevation { get; set; }
             public int AcceptedSceneryCount { get; set; }
             public int ApprovedSceneryCount { get; set; }
-            public int RecommendSceneryId { get; set; }
+            public int? RecommendedSceneryId { get; set; }
             public string Status { get; set; }
             public int SceneryType { get; set; }
             public int SubmissionCount { get; set; }

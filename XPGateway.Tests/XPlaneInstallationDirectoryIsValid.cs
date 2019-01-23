@@ -16,7 +16,7 @@ namespace XPGateway.Tests
         [Test]
         public void CheckThatXPlaneDirectoryIsNotEmpty()
         {
-            Assert.NotNull(_xPlaneinstallationDirectoryTask.GetXPlaneInstallationPath(false), "X-Plane directory shouldn't be empty.");
+            Assert.NotNull(_xPlaneinstallationDirectoryTask.GetXPlaneInstallationPath(), "X-Plane directory shouldn't be empty.");
         }
     }
 }

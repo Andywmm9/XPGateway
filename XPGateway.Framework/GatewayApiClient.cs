@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Threading.Tasks;
 using XPGateway.Framework.Responses;
 
@@ -16,6 +18,8 @@ namespace XPGateway.Framework
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            _httpClient.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("text/html"));
         }
 
         public async Task<GetAllAirportsResponse> GetAllAirportsResponse()
@@ -24,6 +28,14 @@ namespace XPGateway.Framework
 
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<GetAllAirportsResponse>();
+        }
+
+        public async Task<GetSceneryResponse> GetSceneryResponse(int sceneryId)
+        {
+            var response = await _httpClient.GetAsync($"scenery/{sceneryId}");
+
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsAsync<GetSceneryResponse>();
         }
     }
 }

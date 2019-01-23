@@ -11,11 +11,11 @@ namespace XPGateway.Framework.Tasks
     /// </summary>
     public class XPlaneInstallationDirectoryTask
     {
-        private const string _xPlaneInstallFileName = "x-plane_install_11.txt";
+        private const string XPlaneInstallFileName = "x-plane_install_11.txt";
 
-        public string GetXPlaneInstallationPath(bool verbose)
+        public string GetXPlaneInstallationPath()
         {
-            var path = GetAppDataPath() + Path.DirectorySeparatorChar + _xPlaneInstallFileName;
+            var path = GetAppDataPath() + Path.DirectorySeparatorChar + XPlaneInstallFileName;
 
             if (File.Exists(path))
                 return File.ReadLines(path).Last();
